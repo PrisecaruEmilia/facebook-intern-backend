@@ -1,9 +1,13 @@
 const express = require('express')
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 80;
+
 const app = express()
-const port = 3000
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Saluuut!')
 })
 
 app.listen(port, () => {
